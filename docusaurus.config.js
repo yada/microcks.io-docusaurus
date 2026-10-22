@@ -122,13 +122,13 @@ const config = {
         {name: 'keywords', content: 'Microcks, open source, API, microservices, OpenAPI, AsyncAPI, GraphQL, gRPC, Kafka, mocking, testing'},
         {name: 'author', content: 'Microcks'},
       ],
-      announcementBar: {
+      announcementBar: announcement.enable ? {
         id: 'kubecon-na-2026',
         content: `${announcement.text} <a target="_blank" rel="noopener noreferrer" href="${announcement.link}">${announcement.cta}</a>`,
         backgroundColor: '#63a9ec',
         textColor: '#ffffff',
         isCloseable: true,
-      },
+      } : undefined,
       colorMode: {defaultMode: 'light', respectPrefersColorScheme: false},
       zoom: {selector: '.markdown img:not([data-zoom-off])', background: {light: 'rgba(255,255,255,0.92)', dark: 'rgba(16,20,24,0.92)'}},
       docs: {sidebar: {hideable: false, autoCollapseCategories: false}},

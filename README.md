@@ -35,3 +35,4 @@ Agent-friendliness (score 100/A+ with `npx afdocs check <url> --canonical-origin
 3. Lower DNS TTL, switch `microcks.io` to Netlify, re-check the above and the sitemap.
 4. Submit the new sitemap to Search Console.
 5. Confirm the custom domain does not send `X-Robots-Tag` (`curl -sI https://microcks.io/ | grep -i x-robots`).
+6. Confirm `editUrl` in `docusaurus.config.js` (docs and blog) points at the final repository name and that "Edit this page" opens the editor.
