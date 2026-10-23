@@ -1,5 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
+import {useLocation} from '@docusaurus/router';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ErrorBoundary from '@docusaurus/ErrorBoundary';
 import {
   PageMetadata,
@@ -24,6 +26,9 @@ export default function Layout(props) {
     title,
     description,
   } = props;
+  const {pathname} = useLocation();
+  const homePath = useBaseUrl('/');
+  const isHome = pathname === homePath || pathname === `${homePath}index.html`;
   return (
     <LayoutProvider>
       <PageMetadata title={title} description={description} />
@@ -43,7 +48,7 @@ export default function Layout(props) {
         </ErrorBoundary>
       </div>
 
-      <AnnouncementBar />
+      {isHome && <AnnouncementBar />}
 
       <Navbar />
 
