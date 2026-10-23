@@ -311,10 +311,6 @@ div[class*='announcementBar'] a {
 
 /* ---------- Documentation ---------- */
 /* Like the original: docs use the full viewport width (navbar, sidebar flush left, wide content) */
-.docs-doc-page .navbar__inner {
-  max-width: none;
-  padding: 0 1.5rem;
-}
 .docs-doc-page [class*='docMainContainer'] .container {
   max-width: none;
   margin: 0;
@@ -781,3 +777,28 @@ main .theme-doc-markdown a[class*='cardContainer']:not(.button) {
 #__docusaurus > .skipToContent_fXgn, #__docusaurus > [class*='skipToContent'] { order: -3; }
 #__docusaurus > .theme-announcement-bar { order: -2; }
 #__docusaurus > .navbar { order: -1; }
+
+/* Docs sidebar stays pinned under the navbar, even when the footer scrolls into view (the footer slides over it) */
+@media (min-width: 997px) {
+  [class*='sidebarViewport'] {
+    position: fixed !important;
+    top: 5.5rem !important;
+    width: var(--doc-sidebar-width);
+    height: calc(100vh - 5.5rem) !important;
+    max-height: none !important;
+    z-index: 1;
+  }
+  [class*='sidebarViewport'] > [class*='sidebar_'] {
+    padding-top: 1rem;
+  }
+  .footer, footer {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 996px) {
+  .navbar__inner {
+    padding: 0 0.75rem;
+  }
+}
